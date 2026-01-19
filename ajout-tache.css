@@ -1,0 +1,173 @@
+/* CSS Variables */
+:root {
+    --primary-color: #0d6efd;
+    --success-color: #198754;
+    --text-dark: #555;
+    --navbar-bg: #a9b1b1;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --font-main: 'Trebuchet MS', sans-serif;
+}
+
+/* Base Styles */
+body {
+    background: url('images/fond_jaune.png') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #f4f4f4;
+    font-family: var(--font-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+header {
+    width: 100%;
+}
+
+.navbar-custom {
+    background-color: var(--white-transparent);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-brand-custom {
+    font-weight: bold;
+    color: var(--primary-color) !important;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+/* Card */
+.form-card {
+    width: 100%;
+    max-width: 900px;
+    border: none;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    background-color: white;
+    border-radius: 8px;
+}
+
+.form-header {
+    font-weight: bold;
+    font-variant: small-caps;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Form Elements */
+.form-label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Buttons */
+.btn-action {
+    min-width: 120px;
+}
+
+/* Responsive */
+@media (max-width: 575.98px) {
+    .main-content {
+        padding: 1rem;
+    }
+
+    .form-card {
+        padding: 1.5rem !important;
+    }
+
+    .btn-action {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .form-card {
+        padding: 2rem !important;
+    }
+}
+
+/* CSS-Only Hamburger Menu */
+.nav-toggle-checkbox {
+    display: none;
+}
+
+.navbar-toggler {
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar-toggler .close-icon {
+    display: none;
+}
+
+.navbar-toggler .hamburger-icon {
+    display: inline;
+}
+
+.navbar-collapse-custom {
+    display: flex;
+    flex-basis: auto;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse-custom {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--navbar-bg);
+        padding: 1rem;
+        box-shadow: 0 4px 8px var(--card-shadow);
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    .nav-toggle-checkbox:checked~.navbar-collapse-custom {
+        display: flex;
+    }
+
+    .nav-toggle-checkbox:checked~.navbar-toggler .hamburger-icon {
+        display: none;
+    }
+
+    .nav-toggle-checkbox:checked~.navbar-toggler .close-icon {
+        display: inline;
+    }
+
+    .navbar-collapse-custom .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .navbar-collapse-custom .nav-link {
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+    }
+
+    .navbar-collapse-custom .nav-link:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: var(--navbar-bg);
+    padding: 1rem 0;
+}

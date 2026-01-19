@@ -1,0 +1,178 @@
+/* CSS Variables */
+:root {
+    --primary-color: #0d6efd;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --text-dark: #333;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --font-main: 'Trebuchet MS', sans-serif;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+}
+
+/* Navbar */
+header {
+    width: 100%;
+}
+
+.navbar-custom {
+    background-color: var(--white-transparent);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-brand-custom {
+    font-weight: bold;
+    color: var(--primary-color) !important;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 1.5rem;
+}
+
+/* Stats Cards */
+.stats-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.stats-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Table */
+.table-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--card-shadow);
+    overflow-x: auto;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Status Badges */
+.badge-status {
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 575.98px) {
+    main {
+        padding: 1rem;
+    }
+
+    .stats-number {
+        font-size: 2rem;
+    }
+
+    .table {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .table-container {
+        margin: 0 -1rem;
+        border-radius: 0;
+    }
+}
+
+/* CSS-Only Hamburger Menu */
+.nav-toggle-checkbox {
+    display: none;
+}
+
+.navbar-toggler {
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar-toggler .close-icon {
+    display: none;
+}
+
+.navbar-toggler .hamburger-icon {
+    display: inline;
+}
+
+.navbar-collapse-custom {
+    display: flex;
+    flex-basis: auto;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse-custom {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--navbar-bg);
+        padding: 1rem;
+        box-shadow: 0 4px 8px var(--card-shadow);
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    .nav-toggle-checkbox:checked~.navbar-collapse-custom {
+        display: flex;
+    }
+
+    .nav-toggle-checkbox:checked~.navbar-toggler .hamburger-icon {
+        display: none;
+    }
+
+    .nav-toggle-checkbox:checked~.navbar-toggler .close-icon {
+        display: inline;
+    }
+
+    .navbar-collapse-custom .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .navbar-collapse-custom .nav-link {
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+    }
+
+    .navbar-collapse-custom .nav-link:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: var(--navbar-bg);
+    padding: 1rem 0;
+    box-shadow: 0 -2px 4px var(--card-shadow);
+}

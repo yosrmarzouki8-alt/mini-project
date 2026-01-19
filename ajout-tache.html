@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajout Tache</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="ajout-tache.css">
+</head>
+
+<body>
+    <header>
+        <!-- navbar-expand-lg: collapses on screens < 992px -->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-custom py-2 px-3 px-md-4">
+            <div class="container-fluid">
+                
+                <!-- d-none d-sm-inline: hide on xs, show on sm+ -->
+                <a class="navbar-brand navbar-brand-custom fw-bold d-flex align-items-center" href="#">
+                    <i class="bi bi-capsule me-2 fs-4"></i>
+                    <span class="d-none d-sm-inline">Pharmaceutique</span>
+                    <span class="d-inline d-sm-none">Pharma</span>
+                </a>
+                
+                <!-- CSS-only hamburger: checkbox hack (no JS needed) -->
+                <input type="checkbox" id="navToggle" class="nav-toggle-checkbox">
+                <label for="navToggle" class="navbar-toggler border-0 shadow-none d-lg-none fs-4" aria-label="Toggle navigation">
+                    <i class="bi bi-list hamburger-icon"></i>
+                    <i class="bi bi-x-lg close-icon"></i>
+                </label>
+                
+                <!-- ms-auto: push nav items to right -->
+                <div class="navbar-collapse-custom" id="navbarMain">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+                        <li class="nav-item">
+                            <a class="nav-link px-3 py-2 rounded" href="home.html">
+                                <i class="bi bi-house-door me-1"></i>Accueil
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active px-3 py-2 rounded" aria-current="page" href="ajout-tache.html">
+                                <i class="bi bi-plus-circle me-1"></i>Ajouter des tâches
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3 py-2 rounded" href="liste-taches.html">
+                                <i class="bi bi-list-task me-1"></i>Liste des tâches
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- container-fluid on mobile, centered card on larger screens -->
+        <div class="form-card p-3 p-md-4">
+            <h3 class="form-header text-center text-md-start">Ajouter une nouvelle tâche</h3>
+
+            <form>
+                <!-- row: Bootstrap grid for 2 columns on md+ -->
+                <div class="row">
+                    <!-- col-12: full width on mobile, col-md-6: half width on md+ -->
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">Nom de la tâche</label>
+                        <input type="text" class="form-control" placeholder="Ex : Pesée et mélange">
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">Assigné à</label>
+                        <input type="text" class="form-control" placeholder="Ex : Opérateur de production">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">Statut</label>
+                        <select class="form-select">
+                            <option selected disabled>Choisir...</option>
+                            <option>En attente</option>
+                            <option>En cours</option>
+                            <option>Terminé</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-3">
+                        <label class="form-label">Date d'échéance</label>
+                        <input type="date" class="form-control">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" rows="4" placeholder="Décrire la tâche à réaliser..."></textarea>
+                </div>
+
+                <!-- d-flex flex-column flex-sm-row: stack on mobile, row on sm+ -->
+                <div class="mt-3 d-flex flex-column flex-sm-row justify-content-center justify-content-md-start gap-2">
+                    <button type="submit" class="btn btn-success btn-action">
+                        <i class="bi bi-check-lg me-1"></i>Enregistrer
+                    </button>
+                    <button type="reset" class="btn btn-secondary btn-action">
+                        <i class="bi bi-x-lg me-1"></i>Annuler
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- mt-auto: push footer to bottom using flexbox -->
+    <footer class="mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 small text-muted">
+                        &copy; 2024 Gestionnaire de tâches pharmaceutiques
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

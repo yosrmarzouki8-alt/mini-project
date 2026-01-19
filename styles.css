@@ -1,0 +1,248 @@
+/* CSS Variables */
+:root {
+    --primary-color: #0d6efd;
+    --text-dark: #333;
+    --text-black: #000;
+    --white-transparent: rgba(255, 255, 255, 0.8);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --border-radius: 15px;
+    --font-main: 'Trebuchet MS', sans-serif;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Blurred Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://adcltdnm.com/wp-content/uploads/2024/04/Pharmaceutical-industry-background-check.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+    transform: scale(1.1);
+    z-index: -1;
+}
+
+/* Navbar */
+header {
+    width: 100%;
+}
+
+.navbar-custom {
+    background-color: var(--white-transparent);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-brand-custom {
+    font-weight: bold;
+    color: var(--primary-color) !important;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+}
+
+.content-card {
+    background-color: var(--white-transparent);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 1;
+}
+
+/* Typography */
+.title-primary {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.title-secondary {
+    color: var(--text-dark);
+}
+
+.text-description {
+    color: var(--text-black);
+    font-weight: bold;
+}
+
+/* Feature Cards */
+.feature-card {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 575.98px) {
+    .content-card {
+        margin: 1rem;
+        padding: 1.5rem !important;
+    }
+    .title-primary {
+        font-size: 1.5rem;
+    }
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .content-card {
+        padding: 2rem !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .content-card {
+        padding: 2.5rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .content-card {
+        padding: 3rem !important;
+    }
+}
+
+/* Flexbox Utility Classes */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-wrap-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* CSS-Only Hamburger Menu */
+.nav-toggle-checkbox {
+    display: none;
+}
+
+.navbar-toggler {
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar-toggler .close-icon {
+    display: none;
+}
+
+.navbar-toggler .hamburger-icon {
+    display: inline;
+}
+
+.navbar-collapse-custom {
+    display: flex;
+    flex-basis: auto;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse-custom {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--white-transparent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 1rem;
+        box-shadow: 0 4px 15px var(--shadow-color);
+        flex-direction: column;
+        z-index: 1000;
+    }
+    
+    .nav-toggle-checkbox:checked ~ .navbar-collapse-custom {
+        display: flex;
+    }
+    
+    .nav-toggle-checkbox:checked ~ .navbar-toggler .hamburger-icon {
+        display: none;
+    }
+    
+    .nav-toggle-checkbox:checked ~ .navbar-toggler .close-icon {
+        display: inline;
+    }
+    
+    .navbar-collapse-custom .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+    
+    .navbar-collapse-custom .nav-link {
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+    }
+    
+    .navbar-collapse-custom .nav-link:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: var(--white-transparent);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
