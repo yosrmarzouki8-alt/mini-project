@@ -31,8 +31,12 @@ header {
     background-color: var(--white-transparent);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    position: relative;
-    z-index: 10;
+    position: fixed;  /* fixed بدل relative */
+    top: 0;           /* باش يبدا من فوق الصفحة */
+    left: 0;
+    width: 100%;      /* باش يغطي العرض الكل */
+    z-index: 1000;    /* لازم يكون فوق كل حاجة */
+    
 }
 
 .navbar-brand-custom {
@@ -43,7 +47,8 @@ header {
 /* Main Content */
 main {
     flex: 1;
-    padding: 1.5rem;
+    padding: 6rem 1rem 2rem 1rem;
+
 }
 
 /* Stats Cards */

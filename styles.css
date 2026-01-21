@@ -38,8 +38,15 @@ body::before {
 }
 
 /* Navbar */
+/* Navbar */
 header {
     width: 100%;
+    position: fixed;
+    /* Fixes the navbar to the viewport */
+    top: 0;
+    left: 0;
+    z-index: 1020;
+    /* Ensures navbar stays above other content */
 }
 
 .navbar-custom {
@@ -61,7 +68,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 2rem 1rem;
+    padding: 6rem 1rem 2rem 1rem;
 }
 
 .content-card {
@@ -119,9 +126,11 @@ main {
         margin: 1rem;
         padding: 1.5rem !important;
     }
+
     .title-primary {
         font-size: 1.5rem;
     }
+
     .feature-icon {
         width: 50px;
         height: 50px;
@@ -210,31 +219,31 @@ main {
         flex-direction: column;
         z-index: 1000;
     }
-    
-    .nav-toggle-checkbox:checked ~ .navbar-collapse-custom {
+
+    .nav-toggle-checkbox:checked~.navbar-collapse-custom {
         display: flex;
     }
-    
-    .nav-toggle-checkbox:checked ~ .navbar-toggler .hamburger-icon {
+
+    .nav-toggle-checkbox:checked~.navbar-toggler .hamburger-icon {
         display: none;
     }
-    
-    .nav-toggle-checkbox:checked ~ .navbar-toggler .close-icon {
+
+    .nav-toggle-checkbox:checked~.navbar-toggler .close-icon {
         display: inline;
     }
-    
+
     .navbar-collapse-custom .navbar-nav {
         flex-direction: column;
         width: 100%;
         gap: 0.5rem;
     }
-    
+
     .navbar-collapse-custom .nav-link {
         padding: 0.75rem 1rem;
         border-radius: 8px;
         transition: background-color 0.2s ease;
     }
-    
+
     .navbar-collapse-custom .nav-link:hover {
         background-color: rgba(0, 0, 0, 0.05);
     }
