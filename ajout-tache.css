@@ -171,7 +171,6 @@ header {
 
 /* Footer */
 footer {
-    background-color: var(--white-transparent);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-}
+    background-color: var(--navbar-bg);
+    padding: 1rem 0;
+} 

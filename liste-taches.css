@@ -52,6 +52,7 @@ header {
 main {
     flex: 1;
     padding: 6rem 1rem 2rem 1rem;
+
 }
 
 /* Stats Cards */
@@ -180,7 +181,7 @@ main {
 
 /* Footer */
 footer {
-    background-color: var(--white-transparent);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background-color: var(--navbar-bg);
+    padding: 1rem 0;
+    box-shadow: 0 -2px 4px var(--card-shadow);
 }
