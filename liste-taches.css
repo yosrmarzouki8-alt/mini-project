@@ -181,7 +181,7 @@ main {
 
 /* Footer */
 footer {
-    background-color: var(--navbar-bg);
-    padding: 1rem 0;
-    box-shadow: 0 -2px 4px var(--card-shadow);
+    background-color: var(--white-transparent);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
