@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200&display=swap');
+
+        body {
+            margin: 0;
+            margin-bottom: 40px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 70px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        form input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        .trending-header h1 {
+            margin-top: 0;
+        }
+
+        .card {
+            width: 250px;
+            background-color: #EEEEEE;
+
+        }
+
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 10px 20px;
+        }
+
+        .card-info a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .card-info a:hover {
+            text-decoration: underline;
+        }
+
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .trending-cards {
+            display: flex;
+            gap: 80px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: 1px solid #1a73e8;
+            border-radius: 4px;
+            background-color: white;
+            color: #1a73e8;
+            font-size: 13px;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .btn.active {
+            background-color: #1a73e8;
+            color: white;
+            border-color: #1a73e8;
+        }
+
+        #i1 {
+            padding: 8px;
+            width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            justify-content: center;
+            margin-left: 400px;
+        }
+
+        #i2 {
+            padding: 8px 16px;
+            border: 1px solid #1111;
+            border-radius: 4px;
+            background-color: green;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 0px;
+            justify-content: center;
+        }
+
+        .batn {
+            padding: 4px 10px;
+            font-size: 11px;
+            background-color: rgba(255, 0, 0, 0.377);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .batn:hover {
+            background-color: darkred;
+        }
+    </style>
+    <script>
+        function bouton() {
+            var cartes = document.getElementById('cartes');
+            var lescartes = cartes.getElementsByClassName('card');
+            for (var i = 0; i < lescartes.length; i++) {
+                lescartes[i].style.display = 'block';
+            }
+
+        }
+
+
+        function supptout() {
+            var cartes = document.getElementById('cartes');
+            var lescartes = cartes.getElementsByClassName('card');
+            for (var i = 0; i < lescartes.length; i++) {
+                lescartes[i].style.display = 'none';
+            }
+        }
+
+        function supprimer(aaaa) {
+            var carte = aaaa.parentNode.parentNode.parentNode;
+            carte.style.display = 'none';
+
+        }
+
+        function filtrer(nomCategorie) {
+            var parent = document.getElementById('cartes');
+            var child = parent.getElementsByClassName('card');
+
+            for (var i = 0; i < child.length; i++) {
+                if (child[i].getAttribute('name') == nomCategorie) {
+                    child[i].style.display = 'block';
+                }
+                else {
+                    child[i].style.display = 'none';
+                }
+            }
+        }
+
+        function ajouter() {
+            var nom = document.getElementById('nom').value;
+            var categorie = document.getElementById('categorie').value;
+            var description = document.getElementById('description').value;
+
+            var cartes = document.getElementById('cartes');
+
+            var nouvelleCarte = document.createElement('div');
+            nouvelleCarte.className = 'card';
+            nouvelleCarte.setAttribute('name', categorie);
+
+            var img = document.createElement('img');
+            img.src = "images/DVD-dvd.jpg";
+
+            var cardInfo = document.createElement('div');
+            cardInfo.className = 'card-info';
+
+            var cardName = document.createElement('div');
+            cardName.className = 'card-name';
+
+            var h3 = document.createElement('h3');
+            h3.textContent = nom;
+
+            var p = document.createElement('p');
+            p.textContent = description;
+
+            var btn = document.createElement('button');
+            btn.className = 'batn';
+            btn.textContent = 'Remove';
+            btn.setAttribute('onclick', 'supprimer(this)');
+
+            cardName.appendChild(h3);
+            cardName.appendChild(p);
+            cardName.appendChild(btn);
+            cardInfo.appendChild(cardName);
+            nouvelleCarte.appendChild(img);
+            nouvelleCarte.appendChild(cardInfo);
+
+            document.getElementById('cartes').appendChild(nouvelleCarte);
+
+        }
+
+        function recherche() {
+            var search = document.getElementById('i1').value;
+            var cartes = document.getElementById('cartes');
+            var lescartes = cartes.getElementsByClassName('card');
+            for (var i = 0; i < lescartes.length; i++) {
+                var nomcarte = lescartes[i].getElementsByTagName('h3')[0].textContent;
+
+                if (nomcarte == search) {
+                    lescartes[i].style.display = 'block';
+                }
+                else {
+                    lescartes[i].style.display = 'none';
+                }
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h1>PC COMPONENT</h1>
+    <div class="filter-buttons">
+        <button class="btn active" onclick="bouton()">ALL</button>
+        <button class="btn" name="cpu" onclick="filtrer('cpu')">CPU</button>
+        <button class="btn" name="memoire" onclick="filtrer('memoire')">MEMORY</button>
+        <button class="btn">MOTHERBOARD</button>
+        <button class="btn" name="os" onclick="filtrer('os')">OS</button>
+        <button class="btn">INPUT DEVICES</button> </br>
+        <button class="btn">OUPUT DEVICES</button>
+        <button class="btn">SOFTWARE</button>
+        <button class="btn">OTHERS</button>
+        <button class="btn" onclick="ajouter()">ADD NEW CARD</button>
+        <button class="btn" onclick="supptout()">REMOVE ALL</button>
+    </div>
+    <input id="i1" type="text" placeholder="Search items">
+    <input id="i2" type="button" value="Search" onclick="recherche()">
+    <br>
+    <br>
+    <form>
+        <input type="text" id="nom" placeholder="Nom du Composant">
+        <input type="text" id="categorie" placeholder="Categorie">
+        <input type="text" id="description" placeholder="Description">
+    </form>
+    <div class="trending-cards" id="cartes">
+
+        <div class="card" id="carte1">
+            <img src="images/hdd.jpg" alt="">
+            <div class="card-info">
+                <div class="card-name">
+                    <h3>HDD</h3>
+                    <button class="batn" onclick="supprimer(this)">Remove</button>
+
+                </div>
+                <a href="#">Know More</a>
+
+            </div>
+
+
+        </div>
+        <div class="card" id="carte2">
+            <img src="images/ssd.jpg" alt="">
+            <div class="card-info">
+                <div class="card-name">
+                    <h3>SSD</h3>
+                    <button class="batn" onclick="supprimer(this)">Remove</button>
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+
+        </div>
+        <div class="card" id="carte3">
+            <img src="images/nvme.jpg" alt="">
+            <div class="card-info">
+                <div class="card-name">
+                    <h3>NVMe</h3>
+                    <button class="batn" onclick="supprimer(this)">Remove</button>
+
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+
+        </div>
+        <div class="card" id="carte4" name="memoire">
+            <img src="images/ram.jpg" alt="">
+            <div class="card-info">
+                <div class="card-name">
+                    <h3>RAM</h3>
+                    <button class="batn" onclick="supprimer(this)">Remove</button>
+
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+
+        </div>
+        <div class="card" id="carte5" name="cpu">
+            <img src="images/intel.jpg" alt="">
+            <div class="card-info">
+                <div class="card-name">
+                    <h3>Intel</h3>
+                    <button class="batn" onclick="supprimer(this)">Remove</button>
+
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+
+        </div>
+        <div class="card" id="carte6" name="cpu">
+            <img src="images/amd.jpg" alt="">
+            <div class="card-info">
+                <div class="card-name">
+                    <h3>AMD</h3>
+                    <button class="batn" onclick="supprimer(this)">Remove</button>
+
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+
+        </div>
+        <div class="card" id="carte7" name="os">
+            <img src="images/microsoft.jpg" alt="">
+            <div class="card-info">
+                <div class="card-name">
+                    <h3>MICROSOFT <br>
+                        WINDOWS
+                    </h3>
+                    <button class="batn" onclick="supprimer(this)">Remove</button>
+
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+
+        </div>
+        <div class="card" id="carte8" name="os">
+            <img src="images/linux.jpg" alt="">
+            <div class="card-info">
+                <div class="card-name">
+                    <h3>LINUX</h3>
+                    <button class="batn" onclick="supprimer(this)">Remove</button>
+
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+
+        </div>
+
+</body>
+
+</html>
