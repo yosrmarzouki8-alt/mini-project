@@ -100,11 +100,13 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        .btn.active {
+
+        .btn:hover {
             background-color: #1a73e8;
             color: white;
             border-color: #1a73e8;
         }
+
 
         #i1 {
             padding: 8px;
@@ -187,6 +189,7 @@
             var nom = document.getElementById('nom').value;
             var categorie = document.getElementById('categorie').value;
             var description = document.getElementById('description').value;
+            var image = document.getElementById('image').value;
 
             var cartes = document.getElementById('cartes');
 
@@ -195,8 +198,7 @@
             nouvelleCarte.setAttribute('name', categorie);
 
             var img = document.createElement('img');
-            img.src = "images/DVD-dvd.jpg";
-
+            img.src = image;
             var cardInfo = document.createElement('div');
             cardInfo.className = 'card-info';
 
@@ -226,11 +228,11 @@
         }
 
         function recherche() {
-            var search = document.getElementById('i1').value;
+            var search = document.getElementById('i1').value.toLowerCase();
             var cartes = document.getElementById('cartes');
             var lescartes = cartes.getElementsByClassName('card');
             for (var i = 0; i < lescartes.length; i++) {
-                var nomcarte = lescartes[i].getElementsByTagName('h3')[0].textContent;
+                var nomcarte = lescartes[i].getElementsByTagName('h3')[0].textContent.toLowerCase();
 
                 if (nomcarte == search) {
                     lescartes[i].style.display = 'block';
@@ -249,14 +251,15 @@
     <h1>PC COMPONENT</h1>
     <div class="filter-buttons">
         <button class="btn active" onclick="bouton()">ALL</button>
-        <button class="btn" name="cpu" onclick="filtrer('cpu')">CPU</button>
-        <button class="btn" name="memoire" onclick="filtrer('memoire')">MEMORY</button>
-        <button class="btn">MOTHERBOARD</button>
-        <button class="btn" name="os" onclick="filtrer('os')">OS</button>
-        <button class="btn">INPUT DEVICES</button> </br>
-        <button class="btn">OUPUT DEVICES</button>
-        <button class="btn">SOFTWARE</button>
-        <button class="btn">OTHERS</button>
+        <button class="btn" onclick="filtrer('cpu')">CPU</button>
+        <button class="btn" onclick="filtrer('memory')">MEMORY</button>
+        <button class="btn" onclick="filtrer('motherboard')">MOTHERBOARD</button>
+        <button class="btn" onclick="filtrer('os')">OS</button>
+        <button class="btn" onclick="filtrer('input')">INPUT DEVICES</button> </br>
+        <button class="btn" onclick="filtrer('output')">OUPUT DEVICES</button>
+        <button class="btn" onclick="filtrer('software')">SOFTWARE</button>
+        <button class="btn" onclick="filtrer('others')">OTHERS</button>
+        <button class="btn" onclick="filtrer('storage')">STORAGE</button>
         <button class="btn" onclick="ajouter()">ADD NEW CARD</button>
         <button class="btn" onclick="supptout()">REMOVE ALL</button>
     </div>
@@ -268,10 +271,12 @@
         <input type="text" id="nom" placeholder="Nom du Composant">
         <input type="text" id="categorie" placeholder="Categorie">
         <input type="text" id="description" placeholder="Description">
+        <input type="text" id="image" placeholder="URL de l'image">
+
     </form>
     <div class="trending-cards" id="cartes">
 
-        <div class="card" id="carte1">
+        <div class="card" id="carte1" name="storage">
             <img src="images/hdd.jpg" alt="">
             <div class="card-info">
                 <div class="card-name">
@@ -285,7 +290,7 @@
 
 
         </div>
-        <div class="card" id="carte2">
+        <div class="card" id="carte2" name="storage">
             <img src="images/ssd.jpg" alt="">
             <div class="card-info">
                 <div class="card-name">
@@ -297,7 +302,7 @@
 
 
         </div>
-        <div class="card" id="carte3">
+        <div class="card" id="carte3" name="storage">
             <img src="images/nvme.jpg" alt="">
             <div class="card-info">
                 <div class="card-name">
@@ -310,7 +315,7 @@
 
 
         </div>
-        <div class="card" id="carte4" name="memoire">
+        <div class="card" id="carte4" name="memory">
             <img src="images/ram.jpg" alt="">
             <div class="card-info">
                 <div class="card-name">
